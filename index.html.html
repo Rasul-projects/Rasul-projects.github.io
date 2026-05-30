@@ -1,0 +1,813 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rasul Shaik - AI Automation Engineer, Web Developer, Open Source Contributor">
+<title>Rasul Shaik | AI Automation Engineer & Web Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#020617;
+--bg2:#07111f;
+--card:rgba(15,23,42,.75);
+--text:#f8fafc;
+--muted:#94a3b8;
+--accent:#38bdf8;
+--accent2:#60a5fa;
+--border:rgba(56,189,248,.2);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:'Inter',sans-serif;
+background:linear-gradient(180deg,#020617,#07111f);
+color:var(--text);
+overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle,var(--accent),transparent 70%);
+opacity:.08;
+top:-150px;
+right:-150px;
+pointer-events:none;
+}
+
+/* Sticky Navigation Bar */
+nav {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background: rgba(2, 6, 23, 0.8);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+z-index: 1000;
+padding: 15px 0;
+}
+.nav-container {
+width: min(1200px, 92%);
+margin: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.nav-logo {
+font-weight: 800;
+font-size: 1.2rem;
+text-decoration: none;
+color: #fff;
+}
+.nav-links {
+display: flex;
+gap: 20px;
+align-items: center;
+}
+.nav-links a {
+color: var(--muted);
+text-decoration: none;
+font-size: 0.95rem;
+font-weight: 500;
+transition: 0.3s;
+}
+.nav-links a:hover {
+color: var(--accent);
+}
+
+/* Mobile Nav Toggle */
+.menu-btn {
+display: none;
+background: none;
+border: none;
+cursor: pointer;
+padding: 5px;
+z-index: 1100;
+}
+.menu-btn div {
+width: 25px;
+height: 2px;
+background-color: var(--text);
+margin: 6px 0;
+transition: 0.4s;
+}
+
+.container{
+width:min(1200px,92%);
+margin:auto;
+}
+
+section{
+padding:100px 0 60px 0;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+text-align:center;
+padding-top:140px;
+}
+
+.hero-content{
+width:100%;
+}
+
+/* Circular Profile Avatar Image */
+.avatar-container {
+width: 120px;
+height: 120px;
+margin: 0 auto 25px auto;
+border-radius: 50%;
+padding: 4px;
+background: linear-gradient(135deg, var(--accent), var(--accent2));
+box-shadow: 0 8px 24px rgba(56, 189, 248, 0.2);
+}
+.avatar-img {
+width: 100%;
+height: 100%;
+border-radius: 50%;
+object-fit: cover;
+background: #020617;
+display: block;
+}
+
+.badge{
+display:inline-block;
+padding:10px 18px;
+border:1px solid var(--border);
+border-radius:999px;
+background:rgba(56,189,248,.08);
+color:var(--accent);
+margin-bottom:25px;
+font-size:0.9rem;
+}
+
+h1{
+font-size:clamp(2.8rem,7vw,5rem);
+font-weight:800;
+line-height:1.1;
+}
+
+.gradient{
+background:linear-gradient(90deg,var(--accent),#93c5fd);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+font-size:1.2rem;
+color:var(--muted);
+max-width:800px;
+margin:25px auto;
+line-height:1.6;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-top:35px;
+}
+
+.btn{
+padding:14px 26px;
+border-radius:12px;
+text-decoration:none;
+font-weight:700;
+transition:.3s;
+cursor:pointer;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+
+.btn-primary{
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+color:#02131f;
+}
+
+.btn-secondary{
+border:1px solid var(--border);
+color:white;
+background:rgba(255,255,255,0.03);
+}
+
+.btn:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 20px rgba(56,189,248,0.15);
+}
+
+.section-title{
+font-size:2.5rem;
+margin-bottom:10px;
+text-align:center;
+font-weight:800;
+}
+
+.section-sub{
+text-align:center;
+color:var(--muted);
+margin-bottom:50px;
+font-size:1.1rem;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:24px;
+}
+
+.card{
+background:var(--card);
+backdrop-filter:blur(12px);
+border:1px solid var(--border);
+padding:30px;
+border-radius:22px;
+transition:.3s;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:var(--accent);
+background:rgba(15,23,42,0.9);
+box-shadow:0 15px 30px rgba(56,189,248,0.05);
+}
+
+/* Coded Mockup Components inside Cards */
+.card-mockup {
+width: 100%;
+height: 140px;
+background: rgba(2, 6, 23, 0.5);
+border: 1px solid rgba(56, 189, 248, 0.1);
+border-radius: 12px;
+margin-bottom: 20px;
+position: relative;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.mockup-browser {
+width: 90%;
+height: 85%;
+background: #0b1329;
+border-radius: 6px;
+border: 1px solid rgba(255,255,255,0.05);
+padding: 8px;
+font-size: 0.75rem;
+color: var(--accent);
+font-family: monospace;
+display: flex;
+flex-direction: column;
+gap: 4px;
+}
+.mockup-dots {
+display: flex;
+gap: 4px;
+margin-bottom: 4px;
+}
+.mockup-dots span {
+width: 6px;
+height: 6px;
+border-radius: 50%;
+background: rgba(255,255,255,0.2);
+}
+.mockup-preview-ui {
+flex: 1;
+border: 1px dashed rgba(56,189,248,0.2);
+border-radius: 4px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: rgba(255,255,255,0.3);
+font-size: 0.7rem;
+}
+
+.card h3{
+margin-bottom:12px;
+font-size:1.4rem;
+color:#fff;
+}
+
+.card p{
+color:var(--muted);
+line-height:1.6;
+font-size:0.95rem;
+margin-bottom: 20px;
+}
+
+/* Card External Links styling */
+.card-link {
+color: var(--accent);
+text-decoration: none;
+font-weight: 600;
+font-size: 0.9rem;
+display: inline-flex;
+align-items: center;
+gap: 6px;
+transition: 0.2s;
+margin-top: auto;
+align-self: flex-start;
+}
+.card-link:hover {
+color: var(--accent2);
+text-decoration: underline;
+}
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+justify-content:center;
+max-width:900px;
+margin:0 auto;
+}
+
+.skill{
+padding:10px 18px;
+border-radius:999px;
+background:rgba(56,189,248,.05);
+border:1px solid var(--border);
+font-size:0.95rem;
+transition:0.3s;
+}
+
+.skill:hover{
+background:rgba(56,189,248,.15);
+border-color:var(--accent);
+color:#fff;
+}
+
+.achievement{
+text-align:center;
+font-size:1.1rem;
+font-weight:600;
+padding:35px 20px;
+}
+
+.contact{
+text-align:center;
+background:linear-gradient(180deg,#0f172a,#08101c);
+border:1px solid var(--border);
+padding:50px 40px;
+border-radius:25px;
+max-width:800px;
+margin:0 auto;
+}
+
+.contact h2{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+.contact p {
+margin:15px 0;
+color:#fff;
+font-size:1.1rem;
+}
+
+.contact span{
+color:var(--accent);
+font-weight:600;
+}
+
+footer{
+padding:60px 0 40px 0;
+text-align:center;
+color:var(--muted);
+border-top:1px solid rgba(255,255,255,0.05);
+margin-top:50px;
+font-size:0.95rem;
+}
+
+.typing{
+color:var(--accent);
+font-weight:700;
+border-right: 2px solid var(--accent);
+padding-right: 5px;
+animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+from, to { border-color: transparent }
+50% { border-color: var(--accent); }
+}
+
+/* Scroll Reveal Framework */
+.reveal {
+position: relative;
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.active {
+opacity: 1;
+transform: translateY(0);
+}
+
+@media(max-width:768px){
+.menu-btn { display: block; }
+.nav-links {
+position: fixed;
+right: -100%;
+top: 0;
+height: 100vh;
+width: 70%;
+max-width: 300px;
+background: #020617;
+border-left: 1px solid var(--border);
+flex-direction: column;
+padding: 100px 30px;
+justify-content: flex-start;
+gap: 30px;
+transition: 0.4s;
+box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+}
+.nav-links.open { right: 0; }
+/* Mobile Menu Button Transformation */
+.menu-btn.toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+.menu-btn.toggle .line2 { opacity: 0; }
+.menu-btn.toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+
+section{padding:80px 0;}
+.hero{min-height:auto;padding-top:140px;padding-bottom:60px}
+.grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation Header -->
+<nav>
+    <div class="nav-container">
+        <a href="#" class="nav-logo">Rasul<span style="color:var(--accent)">.dev</span></a>
+        <button class="menu-btn" id="menuBtn">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+<section class="hero">
+<div class="hero-content">
+
+<!-- Circular Avatar Container -->
+<div class="avatar-container">
+    <img class="avatar-img" src="https://avatars.githubusercontent.com/u/236334312?v=4" alt="Rasul Shaik Profile Logo">
+</div>
+
+<div class="badge">
+AI Automation Engineer • Web Developer • Open Source Contributor
+</div>
+
+<h1>
+Rasul <span class="gradient">Shaik</span>
+</h1>
+
+<p style="margin-top:15px;font-size:1.5rem;min-height:40px;">
+I am a <span class="typing" id="typing"></span>
+</p>
+
+<p class="subtitle">
+Building modern websites, AI-powered assistants, automation systems,
+business integrations, and digital products that help
+companies save time, reduce manual work, and grow faster.
+</p>
+
+<div class="buttons">
+<a href="mailto:rasulbv@gmail.com" class="btn btn-primary">Hire Me</a>
+<a href="https://github.com/Rasul-projects" target="_blank" class="btn btn-secondary">GitHub Profile</a>
+<a href="https://dmf-courier-website.vercel.app/" target="_blank" class="btn btn-secondary">Live Project</a>
+</div>
+
+</div>
+</section>
+
+<section id="services" class="reveal">
+<h2 class="section-title">Services</h2>
+<p class="section-sub">Solutions focused on real business value.</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Premium Web Development</h3>
+<p>Responsive websites, landing pages, portfolio sites, and modern business interfaces optimized for all screen sizes.</p>
+</div>
+
+<div class="card">
+<h3>AI Automation</h3>
+<p>Workflow automation, productivity systems, business process optimization, and AI-assisted operations using tools like n8n.</p>
+</div>
+
+<div class="card">
+<h3>AI Chatbots & Assistants</h3>
+<p>Custom AI assistants, customer support bots, knowledge-base chatbots, and tailored conversational tools.</p>
+</div>
+
+<div class="card">
+<h3>Business Integrations</h3>
+<p>Forms, contact systems, CRM connections, WhatsApp integrations, and structured workflow automation infrastructure.</p>
+</div>
+
+<div class="card">
+<h3>RAG Applications</h3>
+<p>Retrieval-Augmented Generation systems, intelligent document search, corporate knowledge bases, and informational smart assistants.</p>
+</div>
+
+<div class="card">
+<h3>Brand Identity Design</h3>
+<p>Logo design, visual identity systems, minimalist branding layouts, and clean bilingual design experiences.</p>
+</div>
+
+<div class="card">
+<h3>AI Content & Storytelling</h3>
+<p>Creative content strategy, AI-assisted media creation, multi-platform script writing, and structured storytelling systems.</p>
+</div>
+
+</div>
+</section>
+
+<section id="projects" class="reveal">
+<h2 class="section-title">Featured Projects</h2>
+<p class="section-sub">A showcase of production-ready development and systems engineering.</p>
+
+<div class="grid">
+
+<!-- DMF Card -->
+<div class="card">
+<div>
+    <div class="card-mockup">
+        <div class="mockup-browser">
+            <div class="mockup-dots"><span></span><span></span><span></span></div>
+            <div style="color:#60a5fa">&lt;nav&gt; DMF Logistics &lt;/nav&gt;</div>
+            <div class="mockup-preview-ui">Live Courier Track Active</div>
+        </div>
+    </div>
+    <h3>DMF Courier Web Platform</h3>
+    <p>Commercial logistics website built using responsive design guidelines, focusing on user accessibility, clean structure, and performant delivery workflows.</p>
+</div>
+<a href="https://dmf-courier-website.vercel.app/" target="_blank" class="card-link">Launch Live Application &rarr;</a>
+</div>
+
+<!-- Rasul GPT Card -->
+<div class="card">
+<div>
+    <div class="card-mockup">
+        <div class="mockup-browser">
+            <div class="mockup-dots"><span></span><span></span><span></span></div>
+            <div style="color:#a855f7">> RasulGPT initialize...</div>
+            <div class="mockup-preview-ui">Model: Assistant Online</div>
+        </div>
+    </div>
+    <h3>Rasul GPT Assistant</h3>
+    <p>Custom AI deployment utilizing advanced prompt engineering rules and knowledge bases to act as a responsive virtual engineering assistant.</p>
+</div>
+<a href="https://github.com/Rasul-projects" target="_blank" class="card-link">View System Architecture &rarr;</a>
+</div>
+
+<!-- SHE Card -->
+<div class="card">
+<div>
+    <div class="card-mockup">
+        <div class="mockup-browser" style="justify-content:center; align-items:center; text-align:center;">
+            <div style="font-size:1.4rem; font-weight:300; letter-spacing:4px; color:#f472b6;">నారీ</div>
+            <div style="font-size:0.6rem; color:var(--muted)">S H E • Minimalist Brand</div>
+        </div>
+    </div>
+    <h3>SHE (నారీ) Brand Identity</h3>
+    <p>Premium minimalist brand design package incorporating visual guidelines and bilingual asset management tailored for modern target audiences.</p>
+</div>
+<a href="https://github.com/Rasul-projects" target="_blank" class="card-link">View Case Study &rarr;</a>
+</div>
+
+<!-- Movie Predictor Card -->
+<div class="card">
+<div>
+    <div class="card-mockup">
+        <div class="mockup-browser">
+            <div class="mockup-dots"><span></span><span></span><span></span></div>
+            <div style="color:#34d399">import sklearn, pandas as pd</div>
+            <div class="mockup-preview-ui">Accuracy Score: 91.2%</div>
+        </div>
+    </div>
+    <h3>Movie Success Predictor</h3>
+    <p>Data science and machine learning engine analyzing production datasets to calculate and predict trends influencing box office success factors.</p>
+</div>
+<a href="https://github.com/Rasul-projects/Movie-Predictor-AI" target="_blank" class="card-link">Explore Dataset Notebook &rarr;</a>
+</div>
+
+<!-- AI Log Card -->
+<div class="card">
+<div>
+    <div class="card-mockup">
+        <div class="mockup-browser">
+            <div class="mockup-dots"><span></span><span></span><span></span></div>
+            <div style="color:#f87171">[CRITICAL ERROR] Exception log</div>
+            <div class="mockup-preview-ui" style="color:#f87171">AI Diagnosis complete.</div>
+        </div>
+    </div>
+    <h3>AI System Log Diagnosis</h3>
+    <p>Advanced system monitoring architecture designed to crawl software stack logs, identify operational exceptions, and automate diagnosis tracking paths.</p>
+</div>
+<a href="https://github.com/Rasul-projects" target="_blank" class="card-link">Examine Source Code &rarr;</a>
+</div>
+
+</div>
+</section>
+
+<section id="skills" class="reveal">
+<h2 class="section-title">Skills & Technologies</h2>
+<p class="section-sub">Tools and architectures used to build modern platforms.</p>
+
+<div class="skills">
+<div class="skill">Full-stack Development</div>
+<div class="skill">HTML5 & CSS3</div>
+<div class="skill">JavaScript</div>
+<div class="skill">Python</div>
+<div class="skill">Git & GitHub</div>
+<div class="skill">Vercel Deployment</div>
+<div class="skill">Responsive Web Design</div>
+<div class="skill">AI Automation (n8n)</div>
+<div class="skill">Workflow Optimization</div>
+<div class="skill">AI Chatbots</div>
+<div class="skill">RAG Systems</div>
+<div class="skill">Prompt Engineering</div>
+<div class="skill">Machine Learning</div>
+<div class="skill">Brand Identity</div>
+<div class="skill">Logo Design</div>
+<div class="skill">Content Strategy</div>
+<div class="skill">Open Source Development</div>
+<div class="skill">Business System Integrations</div>
+</div>
+</section>
+
+<section id="achievements" class="reveal">
+<h2 class="section-title">Achievements</h2>
+<p class="section-sub">Community engagement and open source contributions.</p>
+
+<div class="grid">
+<div class="card achievement">Open Source Contributor</div>
+<div class="card achievement">Google Summer of Code Aspirant</div>
+<div class="card achievement">Devpost Hackathon Builder</div>
+<div class="card achievement">Active GitHub Publisher</div>
+</div>
+</section>
+
+<section id="why-me" class="reveal">
+<h2 class="section-title">Why Work With Me</h2>
+<p class="section-sub">Bringing engineering discipline to your project needs.</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Modern Solutions</h3>
+<p>Web applications and AI systems engineered entirely around production specifications and specific business goals.</p>
+</div>
+
+<div class="card">
+<h3>True Responsiveness</h3>
+<p>Interface architecture built to adjust dynamically on mobile devices, laptops, tablets, and large workspace screens.</p>
+</div>
+
+<div class="card">
+<h3>Open Source Core</h3>
+<p>Deep foundational background cooperating openly with global project teams via transparent version tracking.</p>
+</div>
+
+<div class="card">
+<h3>Direct Collaboration</h3>
+<p>Fast milestones delivery paired with straightforward, structured professional communication channels.</p>
+</div>
+
+</div>
+</section>
+
+<section id="contact" class="reveal">
+<div class="contact">
+<h2>Let's Build Something Great</h2>
+<p>Ready to deploy AI automation or upscale your business web interfaces?</p>
+<br>
+<p>Email: <span>rasulbv@gmail.com</span></p>
+<p>Discord username: <span>rasulbv</span></p>
+<p>GitHub handle: <span>Rasul-projects</span></p>
+
+<div class="buttons">
+<a href="mailto:rasulbv@gmail.com" class="btn btn-primary">Contact Me</a>
+<a href="https://github.com/Rasul-projects" target="_blank" class="btn btn-secondary">View GitHub</a>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 Rasul Shaik • AI Automation Engineer & Web Developer
+</footer>
+
+</div>
+
+<script>
+// Mobile Responsive Drawer Menu Script
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('toggle');
+    navLinks.classList.toggle('open');
+});
+
+// Close menu when a navigation item link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuBtn.classList.remove('toggle');
+        navLinks.classList.remove('open');
+    });
+});
+
+// Scroll Reveal Logic using IntersectionObserver
+const revealElements = document.querySelectorAll('.reveal');
+const revealOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => revealOnScroll.observe(el));
+
+// Typewriter Array
+const words=[
+"AI Automation Engineer.",
+"Web Developer.",
+"AI Chatbot Builder.",
+"Open Source Contributor.",
+"RAG Systems Engineer.",
+"Brand Identity Designer.",
+"AI Content Creator."
+];
+
+let i=0;
+const el=document.getElementById("typing");
+
+function typeWord(word) {
+    let speed = 100;
+    let index = 0;
+    el.textContent = "";
+    
+    function addLetter() {
+        if (index < word.length) {
+            el.textContent += word.charAt(index);
+            index++;
+            setTimeout(addLetter, speed);
+        } else {
+            setTimeout(deleteWord, 2000);
+        }
+    }
+    addLetter();
+}
+
+function deleteWord() {
+    let word = words[i];
+    let speed = 50;
+    let index = word.length;
+    
+    function removeLetter() {
+        if (index > 0) {
+            el.textContent = word.substring(0, index - 1);
+            index--;
+            setTimeout(removeLetter, speed);
+        } else {
+            i = (i + 1) % words.length;
+            setTimeout(() => typeWord(words[i]), 500);
+        }
+    }
+    removeLetter();
+}
+
+typeWord(words[i]);
+</script>
+
+</body>
+</html>
